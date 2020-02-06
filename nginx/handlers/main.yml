@@ -1,0 +1,12 @@
+---
+# handlers file for nginx
+
+- name: Check HTTP Service
+  uri:
+    url: http://{{ ansible_defualt_ipv4.address }}
+    status_code: 200
+- name: reload Firewall
+  service:
+    name: firewalld
+    state: reload
+    
